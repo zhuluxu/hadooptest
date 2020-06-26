@@ -14,7 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * Create by GuoJF on 2019/5/19
+ * Create by on 2019/5/19
  */
 public class App {
 
@@ -68,7 +68,6 @@ public class App {
         FileInputStream inputStream = new FileInputStream("E:\\1.txt");
 
         FSDataOutputStream outputStream = fileSystem.create(new Path("/2.txt"), new Progressable() {
-            @Override
             public void progress() {
                 System.out.println("正在创建");
             }
@@ -142,7 +141,7 @@ public class App {
 
     @Test
     public void testMkdir() throws Exception {
-        if (fileSystem.exists(new Path("/baizhi/test01"))) return;
+//        if (fileSystem.exists(new Path("/baizhi/test01"))) return;
 
         boolean mkdirs = fileSystem.mkdirs(new Path("/baizhi/test01"));
 
