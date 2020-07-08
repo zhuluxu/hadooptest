@@ -17,7 +17,7 @@ public class JoinReducer extends Reducer<Text, Text, Text, Text> {
 
 
         String stuName = null;
-        ArrayList<String> classNameList = new ArrayList<>();
+        ArrayList<String> classNameList = new ArrayList();
         for (Text value : values) {
 
 

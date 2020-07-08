@@ -1,5 +1,8 @@
 package hdfs;
 
+import constant.SeasonEnum;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.ListUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.io.IOUtils;
@@ -12,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Collections;
 
 /**
  * Create by on 2019/5/19
@@ -27,6 +31,9 @@ public class App {
         System.setProperty("HADOOP_USER_NAME", "root");
 
         configuration = new Configuration();
+        Collections.emptyList();
+
+//        CollectionUtils.isNotEmpty();
 
         /*
          * 第一种方式：直接使用代码设置相关参数
@@ -153,7 +160,6 @@ public class App {
 
             System.out.println("create failed");
         }
-
 
     }
 

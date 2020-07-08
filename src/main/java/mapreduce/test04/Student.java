@@ -69,15 +69,15 @@ public class Student implements Writable {
             dataOutput.writeUTF(this.name);
         }
 
-        if (this.classList != null) {
-            this.classList.forEach((a) -> {
-                try {
-                    dataOutput.writeUTF(a);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
+//        if (this.classList != null) {
+//            this.classList.forEach((a) -> {
+//                try {
+//                    dataOutput.writeUTF(a);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            });
+//        }
 
     }
 

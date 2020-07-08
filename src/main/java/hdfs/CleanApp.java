@@ -1,5 +1,7 @@
 package hdfs;
 
+import constant.SeasonEnum;
+
 import java.io.*;
 
 /**
@@ -30,6 +32,7 @@ public class CleanApp {
                 fileWriter.write(s+"\n");
                 fileWriter.flush();
             }
+
         }
 
 
