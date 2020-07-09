@@ -1,6 +1,10 @@
 package annotation;
 
+import org.quartz.Job;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+
 import java.lang.reflect.Method;
+import java.util.Map;
 
 /**
  * @author didi
@@ -15,6 +19,21 @@ public class BankService {
 
     }
     private static String processAnnotationMoney(double money) {
+
+        Map<String, Object> beansWithAnnotation = ApplicationContextPro.getApplicationContext().getBeansWithAnnotation(BankTransferMoney.class);
+        beansWithAnnotation.forEach((k,v)-> {
+            Class<? extends Job> clazz = v.getClass().getSuperclass().asSubclass(Job.class);
+            BankTransferMoney bankTransferMoney = clazz.getAnnotation(BankTransferMoney.class);
+            DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) ApplicationContextPro.getApplicationContext().getAutowireCapableBeanFactory();
+            try {
+//                Integer money = beanFactory.resolveEmbeddedValue(,bankTransferMoney.maxMoney()));
+                bankTransferMoney.maxMoney();
+                System.out.println(bankTransferMoney.maxMoney());
+            } catch (IllegalArgumentException e) {
+            }
+        });
+
+
         try {
             Method transferMoney = BankService.class.getDeclaredMethod("TransferMoney",double.class);
             //是否有注解
